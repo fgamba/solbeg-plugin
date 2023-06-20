@@ -26,9 +26,11 @@ class Solbeg {
         if(is_single()) {
           
             
-            $datetime = current_time(get_option('date_format') . ' ' . get_option('time_format'));
+            $post_date = get_post_field('post_date', $post_id);
+            $formatted_date = date(get_option('date_format') . ' ' . get_option('time_format'), strtotime($post_date));
+            
 
-            return $title.' - '.$datetime;
+            return $title.' - '.$formatted_date;
          
         }
     }
